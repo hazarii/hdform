@@ -1,0 +1,46 @@
+addition on
+
+27-05-21
+radiocom
+radiozone
+sense
+wcough
+poliom
+measles
+rabies
+chancroid
+rfever
+dfever
+syphilis
+yfever
+tetanus
+diphtheria
+tfever
+dysentries
+tuberculosis
+goninfections
+hep
+ebola
+conjunc
+foodpoi
+isd
+hfmd
+leprosy
+cholera
+plague
+
+
+remove
+individu
+
+
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="radio" name="cough" id="option1" autocomplete="off" value="Yes"> Yes
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="cough" id="option2" autocomplete="off" value="No"> No
+  </label>
+</div>
+
