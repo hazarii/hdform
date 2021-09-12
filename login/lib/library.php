@@ -114,7 +114,7 @@ class DemoLib
     {
         try {
             $db = DB();
-            $query = $db->prepare("SELECT user_id, name, username, email, usertype, ainloc FROM users WHERE user_id=:user_id");
+            $query = $db->prepare("SELECT users.user_id, users.name, users.username, users.email, users.usertype, users.ainloc, sy_0100.prefername, sy_0100.DIVISION, sy_0100.Grade FROM users LEFT JOIN sy_0100 ON users.username=sy_0100.empno WHERE users.user_id=:user_id");
             $query->bindParam("user_id", $user_id, PDO::PARAM_STR);
             $query->execute();
             if ($query->rowCount() > 0) {

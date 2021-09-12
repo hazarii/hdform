@@ -101,7 +101,7 @@ $toview = $_GET['view'];
 
 
     $start = ($page-1)*$limit;
-echo "SELECT * FROM hd_0001 WHERE applstatus LIKE '$toview' AND visoffice = '$user->ainloc' ORDER BY hd_id";
+//echo "SELECT * FROM hd_0001 WHERE applstatus LIKE '$toview' AND visoffice = '$user->ainloc' ORDER BY hd_id";
     $stmt = $db->prepare("SELECT * FROM hd_0001 WHERE applstatus LIKE '$toview' AND visoffice = '$user->ainloc' ORDER BY hd_id DESC LIMIT $start, $limit");
     $stmt->execute();
 

@@ -41,7 +41,7 @@ if(empty($_SESSION['user_id'])){
 $user = $app->UserDetails($_SESSION['user_id']); // get user details
 ?> <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-<a class="navbar-brand" <?php if(($user->usertype) < 3) { echo 'href="formreview.php?view="'; } else { echo 'href="#"'; } ?>>AMSB | Hello, <?php echo $user->name; ?></a>
+<a class="navbar-brand" <?php if(($user->usertype) < 3) { echo 'href="formreview.php?view="'; } else { echo 'href="#"'; } ?>>AMSB | Hello, <?php echo $user->prefername; ?></a>
 
 
 <div class="collapse navbar-collapse" id="navbarSupportedContent">

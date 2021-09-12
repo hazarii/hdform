@@ -24,7 +24,7 @@ if(empty($_SESSION['user_id']))
         <div class="card card-body bg-light">
 
             <p>
-                <h2>Hello <?php echo $user->name ?>,</h2> <br>redirecting to admin page..
+                <h2>Hello <?php echo $user->prefername ?>,</h2> <br>redirecting to admin page..
             </p>
         </div>
     </div>
