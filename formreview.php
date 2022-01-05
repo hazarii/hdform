@@ -84,7 +84,7 @@ if($_GET['view'] == ""){
 $toview = $_GET['view']; 
 }
 
-    $limit = 10;
+    $limit = 100;
     $s = $db->prepare("SELECT * FROM hd_0001 WHERE applstatus LIKE '$toview' AND visoffice = '$user->ainloc'");
     $s->execute();
     $allResp = $s->fetchAll(PDO::FETCH_ASSOC);
@@ -123,7 +123,6 @@ if($toview == "%%") {
 }
 ?>
 
-<div class="container">
   <h2 class="">Health Declaration Form (<?php echo $toviewn; ?>)<span class="badge">Total: <?php echo $total_results; ?></span> | <a href="searchappl.php">Search applications</a></h2>
 <?php
 
@@ -131,7 +130,7 @@ echo "Page $page";
 
 
 ?>
-  <table class="table table-bordered">
+  <table class="table table-striped table-responsive center">
     <thead>
       <tr>
         <th>#</th>
@@ -155,6 +154,7 @@ echo "Page $page";
         <?php $no++; } ?>
     </tbody>
   </table>
+  <table class="table table-responsive center">
     <ul class="pagination">
         <li><a href="?page=1&view=<?php echo $toview; ?>">First</a>&nbsp;&nbsp;</li>
         
@@ -164,7 +164,7 @@ echo "Page $page";
         <?php }?>
         <li><a href="?page=<?php echo $total_pages; ?>&view=<?php echo $toview; ?>">Last</a></li>
     </ul> 
-</div>
+        </table>
 
  <?php
 

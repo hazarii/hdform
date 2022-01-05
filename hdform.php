@@ -1141,8 +1141,9 @@ if(isset($_POST['submitBtn']))
       $hremail1 = "azman@ainmedicare.com.my"; 
       $hremail2 = "hadi@ainmedicare.com.my";
      } else {
-      $hremail1 = "zainuddin@ainmedicare.com.my"; 
-      $hremail2 = "nursalikin@ainmedicare.com.my";
+      $hremail1 = "nursalikin@ainmedicare.com.my";
+      $hremail2 = "khairul.anwar@ainmedicare.com.my"; 
+      $hremail3 = "shaamim@ainmedicare.com.my";
      }
 
       if($query->execute())
@@ -1159,6 +1160,7 @@ if(isset($_POST['submitBtn']))
       $from = "noreply@ainmedicare.com.my";
       $tohr1 = $hremail1; // hr email 
       $tohr2 = $hremail2; // hr email
+      $tohr3 = $hremail3; // hr email
       $to1 = $appemail; // applicant
       $to2 = $emailaddconperson; // contact person email
       $subject = "Health Declaration Form - New Application";
@@ -1203,6 +1205,7 @@ if(isset($_POST['submitBtn']))
       $headers = "From:" . $from;
       mail($tohr1,$subject,$message, $headers); // internal - hr
       mail($tohr2,$subject,$message, $headers); // internal - hr
+      mail($tohr3,$subject,$message, $headers); // internal - hr
       mail($to2,$subject,$message2, $headers); // internal - pic
       mail($to1,$subject,$message2, $headers); // external - applicant
 
