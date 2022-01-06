@@ -10,8 +10,8 @@
 <!-- jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- font awesome -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- font awesome
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 <!-- google material icon -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -23,6 +23,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- bootstrap icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
 
 <script>
@@ -81,7 +84,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-address-card"></i>
+          <i class="bi bi-file-earmark-person"></i>
           </div>
         </div> 
         <input id="fullname" name="fullname" type="text" required="required" class="form-control">
@@ -94,7 +97,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-id-card"></i>
+            <i class="bi bi-card-heading"></i>
           </div>
         </div> 
         <input id="mykad" name="mykad" type="text" required="required" class="form-control">
@@ -109,7 +112,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-briefcase"></i>
+            <i class="bi bi-building"></i>
           </div>
         </div> 
         <select name="visoffice" class="form-control" required>
@@ -125,8 +128,8 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-id-card"></i>
-          </div>
+          <i class="bi bi-inbox"></i>
+        </div>
         </div> 
         <input id="email" name="appemail" type="email" required="required" class="form-control">
       </div>
@@ -138,10 +141,10 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-arrow-right"></i>
-          </div>
+          <i class="bi bi-box-arrow-in-right"></i>
+         </div>
         </div>
-        <input id="thedate" name="entryin" type="text" required="required" class="form-control" min="<?php echo $currentdate; ?>">
+        <input id="entryin" name="entryin" type="date" required="required" class="form-control" min="<?php echo $currentdate; ?>">
       </div>
     </div>
   </div>
@@ -151,8 +154,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-arrow-left"></i>
-          </div>
+          <i class="bi bi-box-arrow-in-left"></i>          </div>
         </div> 
         <input id="entryout" name="entryout" type="date" required="required" class="form-control" max="<?php echo $maxdate; ?>">
       </div>
@@ -178,7 +180,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-building"></i>
+          <i class="bi bi-briefcase"></i>
           </div>
         </div> 
         <select name="company" class="form-control">
@@ -199,7 +201,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-building"></i>
+          <i class="bi bi-briefcase"></i>
           </div>
         </div> 
         <input id="company" name="company2" type="text" class="form-control" placeholder="Only fill if your company is not listed // Hanya isi jika organisasi anda tidak tersenarai">
@@ -214,7 +216,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-compass"></i>
+          <i class="bi bi-pin-map"></i>
           </div>
         </div> 
         <input id="caddress" name="caddress" type="text" required="required" class="form-control">
@@ -245,7 +247,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-phone-square"></i>
+          <i class="bi bi-telephone-inbound"></i>
           </div>
         </div> 
         <input id="telno" name="telno" type="text" required="required" class="form-control">
@@ -258,7 +260,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-edit"></i>
+          <i class="bi bi-person-plus"></i>
           </div>
         </div> 
         <input id="reasonentry" name="reasonentry" type="text" required="required" class="form-control">
@@ -271,7 +273,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-male"></i>
+          <i class="bi bi-person-badge"></i>
           </div>
         </div> 
         <input id="nameconperson" name="nameconperson" type="text" required="required" class="form-control">
@@ -284,7 +286,7 @@ $maxdate = date("Y-m-d", strtotime("+1 week 6 days"));
       <div class="input-group">
         <div class="input-group-prepend">
           <div class="input-group-text">
-            <i class="fa fa-envelope"></i>
+          <i class="bi bi-envelope-check"></i>
           </div>
         </div> 
         <input id="emailaddconperson" name="emailaddconperson" type="email" class="form-control">

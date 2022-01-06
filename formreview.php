@@ -37,16 +37,6 @@ $toview = $_GET['view'];
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="formdb.php">  
-                <span data-feather="file-text"></span>
-              <i class="fa fa-tv fa-lg"></i> Overview </a>
-              </li>
-
-              <li class="nav-item">
-              <hr>
-              </li>
-
-              <li class="nav-item">
                 <a class="nav-link" href="formreview.php?view=">  
                 <span data-feather="file-text"></span>
               <i class="fa fa-home fa-lg"></i> Home </a>
@@ -149,7 +139,7 @@ echo "Page $page";
             <td><?php echo $result->fullname; ?></td>
             <td><?php echo $result->appemail; ?></td>
             <td><?php echo $result->dt_apply; ?></td>
-            <td align="center"><a href="manageappl.php?view_id=<?php echo $result->hd_id; ?>"> <button type="button" class="btn btn-labeled btn-primary btn-sm"><span class="btn-label"><i class="fa fa-edit"></i></span></button></a></td>
+            <td align="center"><a href="manageappl.php?view_id=<?php echo $result->hd_id; ?>"> <button type="button" class="btn btn-labeled btn-primary btn-sm"><span class="btn-label"><i class="bi bi-pencil-square"></i></span></button></a></td>
           </tr>
         <?php $no++; } ?>
     </tbody>
