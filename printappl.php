@@ -51,6 +51,23 @@ $user = $app->UserDetails($_SESSION['user_id']); // get user details
         $datetest = "";
     }
 
+    
+    if(($coviddate == '0000-00-00') || ($coviddate == '1970-01-01')){
+      $coviddate = "";
+  }
+
+  if(($influenzadate == '0000-00-00') || ($influenzadate == '1970-01-01')){
+      $influenzadate = "";
+  }
+
+  if(($monkeypoxdate == '0000-00-00') || ($monkeypoxdate == '1970-01-01')){
+      $monkeypoxdate = "";
+  }
+
+  if(($otherdisdate == '0000-00-00') || ($otherdisdate == '1970-01-01')){
+      $otherdisdate = "";
+  }
+
     $nid = $id * 3;
     $hashedidr = hash('sha256', $nid);
     
@@ -140,7 +157,7 @@ if($hashedid != $hashedidr){
     </div>
   </div>
   <div class="form-group row">
-    <label class="col-4">Are you an individual applicant or from any organisation? <br><i>Adakah anda pemohon secara individu atau dari syarikat/organisasi?</i></label> 
+  <label class="col-4">Are you from any company/organisation? <br><i>Adakah anda dari mana-mana syarikat/organisasi?</i></label> 
     <div class="col-8">
     <b><?php echo $radiocom; ?></b>
     </div>
@@ -203,130 +220,143 @@ if($hashedid != $hashedidr){
   <hr>
 
   <div class="form-group">
-    <label align="justify">A. Please declare if you or any family members staying with you have been travelling to the countries affected by COVID-19 within 14 days of the declaration. <br><i>A. Sila nyatakan jika anda atau mana-mana ahli keluarga yang tinggal bersama anda telah melawat ke negara yang terkena wabak COVID-19 dalam masa 14 hari dari pengisytiharan ini.</i></label> 
-        <b><?php echo $radio1; ?></b>
+    <label align="justify">A. Are you exhibiting any of the symptoms listed below? <br><i>A. Adakah anda mempunyai simptom seperti berikut?</i></label> 
 
-    <div class="form-group row">
-    <label for="country" class="col-4 col-form-label">Countries <br><i>Negara</i></label> 
-    <div class="col-8">
-        <b><?php echo $country; ?></b>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label for="doafromcountries" class="col-4 col-form-label">Date of arrivals from the state countries <br><i>Tarikh ketibaan dari negara tersebut</i></label> 
-    <div class="col-8">
-        <b><?php echo $doafromcountries; ?></b>
-    </div>
-  </div> 
+    <table class='table table-sm table-borderless'>
+        <tr>
+            <td>Cough / <i>Batuk</i></td>
+            <td><b><?php echo $cough; ?></b></td>
+            <td>Difficult Breathing / <i>Kesukaran Bernafas</i></td>
+            <td><b><?php echo $diffbreathing; ?></b></td>
+            <td>Cough / <i>Batuk</i></td>
+            <td><b><?php echo $cough; ?></b></td>
+            <td>Fever / <i>Chills</i></td>
+            <td><b><?php echo $fever; ?></b></td>
+            <td>Sore Throat / <i>Sakit Tekak</i></td>
+            <td><b><?php echo $sorethroat; ?></b></td>
+        </tr>
+        <tr>
+            <td>Nausea or vomitting / <i>Loya atau muntah</i></td>
+            <td><b><?php echo $nausea; ?></b></td>
+            <td>Diarrhoea / <i>Cirit-birit</i></td>
+            <td><b><?php echo $diarrhoea; ?></b></td>
+            <td>Fatigue / <i>Keletihan</i></td>
+            <td><b><?php echo $fatigue; ?></b></td>
+            <td>Runny nose or nasal congestion / <i>Selesema atau hidung tersumbat</i></td>
+            <td><b><?php echo $flu; ?></b></td>
+            <td>Rash</i></td>
+            <td><b><?php echo $rash; ?></b></td>
+        </tr>
+        <tr>
+            <td>Muscle/Back ache / <i>Sakit badan/belakang</i></td>
+            <td><b><?php echo $bodyache; ?></b></td>
+            <td>Swollen lymph nodes / <i>Benjolan kelenjar</i></td>
+            <td><b><?php echo $swollenlymph; ?></b></td>
+            <td>Exhaustion / <i>Letih yang melampau</i></td>
+            <td><b><?php echo $exhaustion; ?></b></td>
+        </tr>
+    </table>
+
 </div> 
 
 <hr>
 
 <div class="form-group">
-<label align="justify">B. Please declare if you or any family member staying with you have been travelling to the COVID-19 red zone / MCO / CMCO areas within 14 days of the declaration. <br><i>B. Sila nyatakan jika anda atau mana-mana ahli keluarga yang tinggal bersama anda telah pergi ke / dari kawasan zon merah COVID-19 / PKP / PKPD dalam masa 14 hari dari pengisytiharan ini.</i></label> 
-<b><?php echo $radio2; ?></b>
+<label align="justify">B. Have you traveled abroad within the last 5 days?<br><i>B. Adakah anda berkunjung ke luar negara dalam tempoh 5 hari yang lepas?</i><small class="form-text text-muted">For Malaysian only / <i>Untuk warganegara sahaja</i></small></label> <br>
+<b><?php echo $radio1; ?></b>
 
    <div class="form-group row">
-   <label for="areafrom" class="col-4 col-form-label">Zone <br> <i>Zon</i></label> 
+   <label for="areafrom" class="col-4 col-form-label">Date of arrival <br> <i>Tarikh ketibaan</i></label> 
     <div class="col-8">
-        <b><?php echo $radiozone; ?></b>
+        <b><?php echo $doafromcountries; ?></b>
     </div>
   </div>
-  <div class="form-group row">
-    <label for="areafrom" class="col-4 col-form-label">Area <br> <i>Kawasan</i></label> 
-    <div class="col-8">
-        <b><?php echo $areafrom; ?></b>
-    </div>
-  </div> 
+
   </div>
-
-<hr>
-
-  <div class="form-group">
-<label align="justify">C. Do you have any CLOSE CONTACT with a POSITIVE COVID-19 individual? <br><i>C. Adakah anda mempunyai KONTAK RAPAT dengan individu POSITIF COVID-19?</i></label> 
-<br>
-<b><?php echo $radio3; ?></b>
-
 
 <hr>
 
 <div class="form-group">
-<label align="justify">D. Have you ever been tested for COVID-19? <br><i>D. Adakah anda pernah diuji untuk COVID-19? </i></label> 
+<label align="justify">C. Have you ever been tested positive for COVID-19 / Influenza / Monkey Pox or any other transmitted diseases? <br><i>C. Adakah anda pernah disahkan positif COVID-19 / Influenza / Cacar Monyet atau lain-lain penyakit berjangkit?</i></label> 
 <br>
 <b><?php echo $radio4; ?></b>
 
-   
-    <div class="form-group row">
-    <label for="rescovid" class="col-4 col-form-label">Result <br> <i>Keputusan</i></label> 
-    <div class="col-8">
-        <b><?php echo $rescovid; ?></b>
-    </div>
-  </div> 
-
-  <div class="form-group row">
-    <label for="datetest" class="col-4 col-form-label">Date <br> <i>Tarikh</i></label> 
-    <div class="col-8">
-        <b><?php echo $datetest; ?></b>
-    </div>
-  </div> 
-  
-  <div class="form-group row">
-    <label for="loctest" class="col-4 col-form-label">Location of Testing <br> <i>Lokasi Ujian</i></label> 
-    <div class="col-8">
-        <b><?php echo $loctest; ?></b>
-    </div>
-  </div> 
-  
-  <div class="form-group row">
-    <label for="loctest" class="col-4 col-form-label">COVID-19 Test Result <br> <i>Keputusan Ujian COVID-10</i></label> 
-    <div class="col-8">
-        <b><?php echo "<a href='uploadedfiles/$covtestresult' target='blank'>$covtestresult</a>"; ?></b>
-    </div>
-  </div> 
-
+<table class='table table-sm table-borderless'>
+      <tr> <td>
+        <label class="form-check-label" for="flexCheckDefault">
+        COVID-19</label></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $covid; ?></b></td><td></td>
+        <td><small class="form-text text-muted">Date of confirmed positive / <i>Tarikh disahkan positif</i></small><b><?php echo $coviddate; ?></b></td>
+      </tr> 
+      <tr> <td>
+        <label class="form-check-label" for="flexCheckDefault">
+        Influenza</label></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $influenza; ?></b></td><td></td>
+        <td><small class="form-text text-muted">Date of confirmed positive / <i>Tarikh disahkan positif</i></small><b><?php echo $influenzadate; ?></b></td>
+      </tr>
+      <tr> <td>
+        <label class="form-check-label" for="flexCheckDefault">
+        Monkey Pox</label></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $monkeypox; ?></b></td><td></td>
+        <td><small class="form-text text-muted">Date of confirmed positive / <i>Tarikh disahkan positif</i></small><b><?php echo $monkeypoxdate; ?></b></td>
+      </tr>
+      <tr> <td>
+        <label class="form-check-label" for="flexCheckDefault">
+        Other</label></td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><?php echo $otherdis; ?></b></td><td></td>
+        <td><small class="form-text text-muted">Date of confirmed positive / <i>Tarikh disahkan positif</i></small><b><?php echo $otherdisdate; ?></b></td>
+      </tr>
+    </table>
   </div>
-
-
-<br><br>
-
-<h2>Symptoms</h2>
 <hr>
-  <div class="form-group row">
-    <label class="col-4">Cough <br><i>Batuk / Batuk Kering</i></label> 
+
+<div class="form-group">
+<label align="justify">D. Have you completed the COVID-19 vaccination? <br><i>D. Adakah anda telah lengkap vaksinasi COVID-19?</i></label>
+<br>
+<b><?php echo $radio2; ?></b>
+
+<div class="form-group row">
+   <label for="areafrom" class="col-4 col-form-label">Nama Vaksin <br> / Vaccine Name</label> 
     <div class="col-8">
-        <b><?php echo $cough; ?></b>
+        <b><?php echo $vaxname; ?></b>
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-4">Difficult Breathing <br><i>Kesukaran Bernafas</i></label> 
+
+<div class="form-group row">
+   <label for="areafrom" class="col-4 col-form-label">Other Vaccine Name</label> 
     <div class="col-8">
-        <b><?php echo $diffbreathing; ?></b>
+        <b><?php echo $vaxother; ?></b>
     </div>
   </div>
-  <div class="form-group row">
-    <label class="col-4">Fever <br><i>Demam</i></label> 
-    <div class="col-8">
-        <b><?php echo $fever; ?></b>
-    </div>
+
   </div>
-  <div class="form-group row">
-    <label class="col-4">Flu <br><i>Selesema</i></label> 
-    <div class="col-8">
-        <b><?php echo $flu; ?></b>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Sore Throat <br><i>Sakit Tekak</i></label> 
-    <div class="col-8">
-        <b><?php echo $sorethroat; ?></b>
-    </div>
-  </div>
-  <div class="form-group row">
-    <label class="col-4">Loss of sense of smell / taste <br><i>Hilang deria rasa / bau</i></label> 
-    <div class="col-8">
-        <b><?php echo $sense; ?></b>
-    </div>
-  </div>
+
+<hr>
+
+<div class="form-group">
+<label align="justify">E. Please upload your Health Screening Result <br> <i>E. Sila muatnaik Keputusan Ujian Kesihatan anda</i></label>
+
+
+<table class='table table-sm table-borderless'>
+    <tr>
+        <td>Health Screening Result 1<br> <i>Keputusan Ujian Kesihatan 1</i></td>
+        <td> <b><?php echo "<a href='uploadedfiles/$covtestresult' target='blank'>$covtestresult</a>"; ?></b></td>
+    </tr>
+    <tr>
+        <td>Health Screening Result 2<br> <i>Keputusan Ujian Kesihatan 2</i></td>
+        <td> <b><?php echo "<a href='uploadedfiles/$covtestresult2' target='blank'>$covtestresult2</a>"; ?></b></td>
+    </tr>
+</table>
+
+
+  </div> 
+
+  <hr>
+
+  
+<div class="form-group">
+<label align="justify">F. Besides the above, are you exhibiting any of the diseases listed below? <br> <i>F. Selain yang di atas, adakah anda mengalami penyakit seperti berikut?</i></label>
+
   <div class="form-group row">
     <table class="table">
       <tr>
@@ -402,6 +432,9 @@ if($hashedid != $hashedidr){
         <td><b><?php echo $plague; ?></b></td>
       </tr>
     </table>
+  </div> 
+  </div> 
+ 
   </div> 
 <?php
 

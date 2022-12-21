@@ -139,7 +139,7 @@ echo "Page $page";
             <td><?php echo $result->fullname; ?></td>
             <td><?php echo $result->appemail; ?></td>
             <td><?php echo $result->dt_apply; ?></td>
-            <td align="center"><a href="manageappl.php?view_id=<?php echo $result->hd_id; ?>"> <button type="button" class="btn btn-labeled btn-primary btn-sm"><span class="btn-label"><i class="bi bi-pencil-square"></i></span></button></a></td>
+            <td align="center">  <a href="manageapplv2.php?view_id=<?php echo $result->hd_id; ?>"> <button type="button" class="btn btn-labeled btn-info btn-sm"><span class="btn-label"><i class="bi bi-pencil-square"></i></span></button></a></td>
           </tr>
         <?php $no++; } ?>
     </tbody>

@@ -44,35 +44,15 @@ include('login/assets.php');
 <div class="row">
 <div class="col-md-12">
 
-<script>
-$(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
-                // Display the returned data in browser
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
-    
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
-});
-</script>
 </head>
 <body>
-    <div class="form-control search-box" style="border:none">
+    <form method='get'>
     <br>
-        <input type="text" autocomplete="off" placeholder="Search" class="form-control"/>
+        <input type="text" autocomplete="off" placeholder="Search" name="searchval" class="form-control" required/>
         <br>
+        <button name="submitBtn" type="submit" class="btn btn-primary btn-block"><i class="bi bi-search"></i>&nbsp;&nbsp;Search / Cari</button>
+    </form>
+    <hr>
     <div class="alert alert-info announcebox" id="announce"> 
     <button class="close" onclick="document.getElementById('announce').style.display='none'" >X</button>
     <div class="row justify-content-center">
@@ -109,8 +89,65 @@ $(document).ready(function(){
 </div>
 </div>
         <div class="result"></div>
-    </div>
-    
+
+        <?php
+if(isset($_GET['submitBtn']))
+{
+
+    $term = $_GET['searchval'];
+
+    $sql = "SELECT * FROM hd_0001 WHERE visoffice = '$user->ainloc' AND (fullname LIKE '%$term%' OR mykad LIKE '%$term%' OR entryin LIKE '%$term%' OR entryout LIKE '%$term%' OR company LIKE '%$term%' OR refnum LIKE '%$term%') ORDER BY dt_apply DESC";
+
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    if($stmt->rowCount() > 0){
+        $count = $stmt->rowCount();
+        echo "<b>$count</b> search result for: <b>\"$term\"</b><br><br>";
+        echo "<table class='table'>
+        <thead class='thead-dark'><tr>
+        <td><b>#</b></td>
+        <td><b>Ref</b></td>
+        <td><b>Name</b></td>
+        <td><b>MyKad / Passport</b></td>
+        <td><b>Date Applied</b></td>
+        <td><b>Entry In</b></td>
+        <td><b>Entry Out</b></td>
+        <td><b>Company</b></td>
+        <td><b>Status</b></td>
+        <td><b>Location</b></td>
+        <td><b>View</b></td></tr>
+        </thead>";
+        $counter = "1";
+        while($row = $stmt->fetch()){
+
+            if($row["applstatus"] == 'Approved'){
+                $statcolour = "green";
+            } else if ($row["applstatus"] == 'Pending'){
+                $statcolour = "orange";
+            } else {
+                $statcolour = "red";
+            }
+            echo "<tbody><tr><td>" . $counter; $counter++ . "</td>";
+            echo "<td>" . $row["refnum"] . "</td>";
+            echo "<td>" . $row["fullname"] . "</td>";
+            echo "<td>" . $row["mykad"] . "</td>";
+            echo "<td>" . $row["dt_apply"] . "</td>";
+            echo "<td>" . $row["entryin"] . "</td>";
+            echo "<td>" . $row["entryout"] . "</td>";
+            echo "<td>" . $row["company"] . "</td>";
+            echo "<td style='color:$statcolour';>" . $row["applstatus"] . "</td>";
+            echo "<td>" . $row["visoffice"] . "</td>";
+            echo "<td><a href='manageappl.php?view_id=$row[hd_id]'> <button type='button' class='btn btn-labeled btn-primary btn-sm'><span class='btn-label'><i class='bi bi-arrow-up-right'></i></span></button></a></td></tr></tbody>";
+        }
+        echo "</table>";
+    } else{
+        echo "<p class='text-center'>Tiada hasil carian <br><br> No matches found</p>";
+    }
+
+
+}
+    ?>
+
 
 </div>
 </div>

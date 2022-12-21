@@ -8,11 +8,13 @@ session_start();
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
 <!-- bootstrap -->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"> 
+<link rel="stylesheet" href="assets/css/bootstrap.4.1.3.min.css"> 
 
 <!-- jquery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="assets/jquery/jquery-3.5.1.min.js"></script>
+
 
 <!-- font awesome
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -108,6 +110,6 @@ if (!empty($_POST['btnLogin'])) {
 <?php
 
 // Header 
-include('footer.php');
+// include('footer.php');
 
 ?>

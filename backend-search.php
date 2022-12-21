@@ -89,7 +89,7 @@ try{
                 echo "<td>" . $row["company"] . "</td>";
                 echo "<td style='color:$statcolour';>" . $row["applstatus"] . "</td>";
                 echo "<td>" . $row["visoffice"] . "</td>";
-                echo "<td><a href='manageappl.php?view_id=$row[hd_id]'> <button type='button' class='btn btn-labeled btn-primary btn-sm'><span class='btn-label'><i class='fa fa-edit'></i></span></button></a></td></tr></tbody>";
+                echo "<td><a href='manageapplv2.php?view_id=$row[hd_id]'> <button type='button' class='btn btn-labeled btn-primary btn-sm'><span class='btn-label'><i class='fa fa-edit'></i></span></button></a></td></tr></tbody>";
             }
             echo "</table>";
         } else{
